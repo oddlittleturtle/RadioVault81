@@ -8,7 +8,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 Vlt81Radio:oltRadioVault81QuestScript kmyQuest = GetOwningQuest() as Vlt81Radio:oltRadioVault81QuestScript
 ;END AUTOCAST
 ;BEGIN CODE
-kmyquest.CurrentSong=7
+kmyquest.CurrentSong=8
 kmyquest.UpdateRadio()
 ;END CODE
 EndFunction

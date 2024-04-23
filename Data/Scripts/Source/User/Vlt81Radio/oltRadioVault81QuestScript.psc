@@ -17,6 +17,7 @@ Group Songs
     Int Property LastSong07  Auto   Conditional
     Int Property LastSong08  Auto   Conditional
     Int Property LastSong09  Auto   Conditional
+    Int Property SongCount   Auto   Conditional
 EndGroup
 
 
