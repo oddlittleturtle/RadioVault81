@@ -92,10 +92,14 @@ You can also find me hanging around the official BGS Discord.
 - Guilherme Bernardes - composer, music licensed under Pixabay Content License: https://pixabay.com/service/license-summary/
 - oddlittleturtle - plugin work, script, editing
 
+# Contributing
 Source scripts included and also available on Github: https://github.com/oddlittleturtle/RadioVault81
 
+Creating issues and pull requests are preferred over creating new mod page.
 
-Disclaimer: I am not associated with the composer in any way. There is no endorsement or support from the composer. I simply wanted to listen to his music from my Pip-boy in game.
+
+# Disclaimer
+oddlittleturtle is not associated with the composer in any way. There is no endorsement or support from the composer. I simply wanted to listen to his music from my Pip-boy in game.
 
 
 # SEARCH KEYWORDS
