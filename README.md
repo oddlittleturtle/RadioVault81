@@ -61,22 +61,22 @@ Recommend new game for best results and so that you don't mess up your current l
 
 
 ### Survive Load Order Disorder:
-- Load Order Framework: oddlittleturtle.com/load-order-framework
-- Load Order Survival Guide: oddsmods.xyz/FO4LoadOrderSurvivalGuide
-- Blank Load Order Template: oddsmods.xyz/FO4LOFrameworkTemplate
-- Load Order Discord: discord.gg/armoredreptile
-- Load Order FAQ Thread: archive.is/vzJvG
+- Load Order Framework: https://oddlittleturtle.com/load-order-framework
+- Load Order Survival Guide: https://oddsmods.xyz/FO4LoadOrderSurvivalGuide
+- Blank Load Order Template: https://oddsmods.xyz/FO4LOFrameworkTemplate
+- Load Order Discord: https://discord.gg/armoredreptile
+- Load Order FAQ Thread: https://archive.is/vzJvG
 
 
 
 # SOCIAL AND FEEDBACK
-- Discord:  discord.gg/ArmoredReptile
-- Follow on Twitter:  @oddlittleturtle
-- Follow on Mastodon:  mastodon.social/@oddlittleturtle
-- Follow on ko-fi:  ko-fi.com/oddlittleturtle
-- Email:  oddlittleturtle.com/contact
-- Mod Development and Load Order Journal:  oddlittleturtle.com
-- Odd's Other Mods:  oddsmods.xyz
+- Discord:  https://discord.gg/ArmoredReptile
+- Follow on Twitter:  https://twitter.com/oddlittleturtle
+- Follow on Mastodon:  https://mastodon.social/@oddlittleturtle
+- Follow on ko-fi:  https://ko-fi.com/oddlittleturtle
+- Email:  https://oddlittleturtle.com/contact
+- Mod Development and Load Order Journal:  https://oddlittleturtle.com
+- Odd's Other Mods:  https://oddsmods.xyz
 
 You can also find me hanging around the official BGS Discord.
 
@@ -92,10 +92,12 @@ You can also find me hanging around the official BGS Discord.
 - Guilherme Bernardes - composer, music licensed under Pixabay Content License: https://pixabay.com/service/license-summary/
 - oddlittleturtle - plugin work, script, editing
 
+
+
 # Contributing
 Source scripts included and also available on Github: https://github.com/oddlittleturtle/RadioVault81
 
-Creating issues and pull requests are preferred over creating new mod page.
+Creating issues and pull requests are preferred over creating new mod page. Do not upload source or recompile scripts without modification.
 
 
 # Disclaimer
@@ -106,8 +108,7 @@ oddlittleturtle is not associated with the composer in any way. There is no endo
 drunk-turtle drunken-modding special-spork oddlittleturtle YAMA ugh.
 
 
-writer. weirdo. imaginary friend.
-
+## writer. weirdo. imaginary friend.
 https://oddlittleturtle.com
 
 
