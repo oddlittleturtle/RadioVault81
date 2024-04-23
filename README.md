@@ -11,6 +11,7 @@ On your Pip-boy, you will find this station on radio frequency 81.818818181.
 
 ## Tracks and composer:
 https://pixabay.com/users/guilhermebernardes-24203804/
+
 Guilherme Bernardes' YouTube: https://www.youtube.com/@guinaberandardes
 
 1.  Hopeless
@@ -34,17 +35,18 @@ Guilherme Bernardes' YouTube: https://www.youtube.com/@guinaberandardes
 
 
 # LIKE THE MOD?
-Bookmark it to Favorite it
-Add a Like from in-game
-Share the link with friends (Bethnet has share links to Facebook, Twitter, and Reddit. Use them!)
-Join on Discord to let me know
-Subscribe to my newsletter
-Buy me a coffee at ko-fi
+- Bookmark it to Favorite it
+- Add a Like from in-game
+- Share the link with friends (Bethnet has share links to Facebook, Twitter, and Reddit. Use them!)
+- Join on Discord to let me know
+- Subscribe to my newsletter
+- Buy me a coffee at ko-fi
 
 
 
 # COMPATIBILITY
-Will not be compatible with radio mods that use the same frequency. 
+Will not be compatible with radio mods that use the same frequency.
+
 Will not be compatible with radio mods that switch out the Diamond City radios in Vault 81 with their own radio. I use scripts to grab the refs and deposit them into Vault 81's holding cell. 
 
 
@@ -54,15 +56,16 @@ Note: Radio Activators are not part of the precombines (or the player wouldn't b
 
 # LOAD ORDER
 Self-contained master file with all-new records. Will jump to the top of your load order.
+
 Recommend new game for best results and so that you don't mess up your current load order.
 
 
 ### Survive Load Order Disorder:
-Load Order Framework: oddlittleturtle.com/load-order-framework
-Load Order Survival Guide: oddsmods.xyz/FO4LoadOrderSurvivalGuide
-Blank Load Order Template: oddsmods.xyz/FO4LOFrameworkTemplate
-Load Order Discord: discord.gg/armoredreptile
-Load Order FAQ Thread: archive.is/vzJvG
+- Load Order Framework: oddlittleturtle.com/load-order-framework
+- Load Order Survival Guide: oddsmods.xyz/FO4LoadOrderSurvivalGuide
+- Blank Load Order Template: oddsmods.xyz/FO4LOFrameworkTemplate
+- Load Order Discord: discord.gg/armoredreptile
+- Load Order FAQ Thread: archive.is/vzJvG
 
 
 
@@ -100,6 +103,7 @@ drunk-turtle drunken-modding special-spork oddlittleturtle YAMA ugh.
 
 
 writer. weirdo. imaginary friend.
+
 https://oddlittleturtle.com
 
 
