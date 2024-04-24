@@ -49,7 +49,7 @@ Guilherme Bernardes' YouTube: https://www.youtube.com/@guinabernardes
 # COMPATIBILITY
 Will not be compatible with radio mods that use the same frequency.
 
-Will not be compatible with radio mods that switch out the Diamond City radios in Vault 81 with their own radio. I use scripts to grab the refs and deposit them into Vault 81's holding cell. 
+Will not be compatible with radio mods that switch out the Diamond City radios in Vault 81 with their own radio.
 
 
 Note: Radio Activators are not part of the precombines (or the player wouldn't be able to interact with them) and have been scripted to update from Diamond City Radio to the new frequency without touching the cell data. If you're curious as to what the scripts are doing, the source is available on Git Hub. (It's derpy but works.)
@@ -89,12 +89,13 @@ Bugs? Report them here: https://github.com/oddlittleturtle/RadioVault81/issues
 # SOFTWARE
 - FFMPEG
 - Creation Kit
+- VS Code
 
 
 
 # CREDITS
 - Guilherme Bernardes - composer, music licensed under Pixabay Content License: https://pixabay.com/service/license-summary/
-- oddlittleturtle - plugin work, script, editing
+- oddlittleturtle - plugin work, scripts
 
 
 
@@ -112,7 +113,6 @@ oddlittleturtle is not associated with the composer in any way. There is no endo
 
 # SEARCH KEYWORDS
 drunk-turtle drunken-modding special-spork oddlittleturtle Vault-81-Radio Guilherme ugh.
-
 
 
 ## writer. weirdo. imaginary friend.
