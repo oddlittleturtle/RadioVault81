@@ -10,7 +10,7 @@ Vlt81Radio:oltRadioVault81QuestInitScript kmyQuest = __temp as Vlt81Radio:oltRad
 ;BEGIN CODE
 debug.trace(self + " Setting stage 10. Starting up Radio Vault 81!!!" )
 ;turn on Radio Vault 81
-;kmyQuest.TurnOnRadioVault81()
+kmyQuest.TurnOnRadioVault81()
 
 ;set up radios
 kmyQuest.SwitchOldRadios()
@@ -26,10 +26,10 @@ Vlt81Radio:oltRadioVault81QuestInitScript kmyQuest = __temp as Vlt81Radio:oltRad
 ;END AUTOCAST
 ;BEGIN CODE
 debug.trace(self + "Stage 255")
+;unregister and update global to unlock building radio
 kmyQuest.UnregisterForMQEvent()
 
-utility.wait(1.0)
-Stop()
+;we cannot shut this quest down. It's holding the main transmitter.
 ;END CODE
 EndFunction
 ;END FRAGMENT
