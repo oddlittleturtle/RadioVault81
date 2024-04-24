@@ -5,7 +5,7 @@ by oddlittleturtle
 # OVERVIEW
 Adds a new radio station to listen to featuring orchestral music composed by Guilherme Bernardes. Music is not automatically available, you must discover Vault 81 first. Music will be playing on radios in the vault.
 
-On your Pip-boy, you will find this station on radio frequency 81.818818181.
+On your Pip-boy, you will find this station on radio frequency 81.82.
 
 
 
@@ -47,7 +47,7 @@ Guilherme Bernardes' YouTube: https://www.youtube.com/@guinaberandardes
 # COMPATIBILITY
 Will not be compatible with radio mods that use the same frequency.
 
-Will not be compatible with radio mods that switch out the Diamond City radios in Vault 81 with their own radio. I use scripts to grab the refs and deposit them into Vault 81's holding cell. 
+Will not be compatible with radio mods that switch out the Diamond City radios in Vault 81 with their own radio.
 
 
 Note: Radio Activators are not part of the precombines (or the player wouldn't be able to interact with them.)
@@ -101,11 +101,11 @@ Creating issues and pull requests are preferred over creating new mod page. Do n
 
 
 # Disclaimer
-oddlittleturtle is not associated with the composer in any way. There is no endorsement or support from the composer. I simply wanted to listen to his music from my Pip-boy in game.
+oddlittleturtle is not associated with the composer in any way. There is no endorsement or support from the composer or their affiliates. I simply wanted to listen to his music from my Pip-boy in the game.
 
 
 # SEARCH KEYWORDS
-drunk-turtle drunken-modding special-spork oddlittleturtle YAMA ugh.
+drunk-turtle drunken-modding special-spork oddlittleturtle Vault-81-Radio Guilherme ugh.
 
 
 ## writer. weirdo. imaginary friend.
