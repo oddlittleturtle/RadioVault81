@@ -28,7 +28,7 @@ Group Radios
     {Default 81.82}
     Float Property radioVol = 1.0 Auto Const
     {Default 1.0. Full Volume}
-    bool Property bRadioOff = Falso Auto Const
+    bool Property bRadioOff = False Auto Const
     {Turns radio off. Default off}
 
 EndGroup
@@ -277,7 +277,7 @@ Function PlaceRadio(ObjectReference akOldRadio, float fFreq, float fVol, bool bI
             akOldRadio.MakeRadioReceiver(fFreq, fVol, none, False)
             debug.trace(self + " --- Radio Vault 81 receiver akOldRadio: " + akOldRadio + " converted to frequency: " + fFreq + " and has volume: " + fVol + " and is turned off")
         endif
-        debug.trace(self " -- Radio Vault 81 radios converted from Diamond City to Vault 81.")
+        debug.trace(self + " -- Radio Vault 81 radios converted from Diamond City to Vault 81.")
     endif
 EndFunction
 
@@ -285,7 +285,7 @@ EndFunction
 Function SwitchOldRadios()
 
     PlaceRadio(RadioDiamondCityReceiver,      radioFreq, radioVol, False)
-    PlaceRadio(RadioDiamondCityRaceiverNew_1, radioFreq, radioVol, False)
+    PlaceRadio(RadioDiamondCityReceiverNew_1, radioFreq, radioVol, False)
     PlaceRadio(RadioDiamondCityReceiverNew_2, radioFreq, radioVol, False)
     PlaceRadio(RadioDiamondCityReceiverNew_3, radioFreq, radioVol, false)
     PlaceRadio(RadioDiamondCityReceiverNew_4, radioFreq, radioVol, false)
