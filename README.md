@@ -29,7 +29,7 @@ Guilherme Bernardes' YouTube: https://www.youtube.com/@guinaberandardes
 # NOTES
 - I do not support the removal of mods in the middle of a playthrough. Have a listen to the composer's YouTube to see if you like the music before downloading. If it isn't for you, give a pass to this mod. If you check out the mod anyway, start a new character if you decide you do not want it after installing or go back to a previous save where the mod was never installed.
 
-- MP3 tracks were converted to raw WAV using FFMPEG. They were then compressed to high-quality, game-ready xwm tracks by archiving the file.
+- MP3 tracks were converted to raw WAV using FFMPEG. They were then compressed to high-quality, game-ready xwm tracks when I archived them for upload to the Bethesda site.
 
 - Vault 81 Radio is buildable in workshops after completing "Hole in the Wall."
 
@@ -85,12 +85,13 @@ You can also find me hanging around the official BGS Discord.
 # SOFTWARE
 - FFMPEG
 - Creation Kit
+- VS Code
 
 
 
 # CREDITS
 - Guilherme Bernardes - composer, music licensed under Pixabay Content License: https://pixabay.com/service/license-summary/
-- oddlittleturtle - plugin work, script, editing
+- oddlittleturtle - plugin work, scripts
 
 
 
