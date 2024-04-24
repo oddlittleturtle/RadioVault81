@@ -14,6 +14,7 @@ Group MQ102_Properties
     Int Property MyStageToSet Auto Const Mandatory
     Int Property MyStageToWatch = 10 Auto Const
     Quest Property MQ102 Auto Const Mandatory
+    Quest Property oltRadioVault81 Auto Const Mandatory
 EndGroup
 
 Group Radios
@@ -97,17 +98,23 @@ int ioltRadioOffTinasRoom = 0x00001773 const
 ObjectReference Property oltRadioMarkerCenterRef Auto Hidden
 int ioltRadioMarkerCenterRef = 0x00001750 const
 
-
 String sRV81 = "RadioVault81_olt.esm"
 
 bool bRadioEventsReady
 
-
-
 ;/---------------------------------------------
-       QUEST START
+       START UP AND SHUTDOWN
 -----------------------------------------------/;
 Event OnQuestInit()
+    StartUp()
+EndEvent
+
+
+Event Quest.OnStageSet(quest akSendingQuest, int auiStageID, int auiItemID)
+    RegisterForMQEvent()
+EndEvent
+
+Function StartUp()
     if (!bInitialized)
         ; these only need to be called here. We're already going to have the plugins loaded
         bFO4EventsReady = bFO4EventsReady || ProcessOldRadioVariables()
@@ -118,20 +125,49 @@ Event OnQuestInit()
 
         ;register for player leaving vault
         RegisterForMQEvent()
+
+        ;update the scrap lists
+        UpdateScraplist()
     endif
     bInitialized = true
     debug.trace(self + " --- Radio Vault 81 - Initialized.")
-EndEvent
+EndFunction
 
+;check for the player leaving the vault
+bool Function RegisterForMQEvent()
+    debug.trace(self + " --- Radio Vault 81. Has player left Vault 111?")
+    ; check if player has left Vault 111
+    if (MQ102.GetStageDone(MyStageToWatch) == True) && Vault81AtriumMapMarker.Is3DLoaded() == 0
+        debug.trace(self + " --- Radio Vault 81. Player has left Vault 111. Starting up radio!!")
 
-Event Quest.OnStageSet(quest akSendingQuest, int auiStageID, int auiItemID)
-    RegisterForMQEvent()
-EndEvent
+        ; when stage sets, it turns on Radio Vault 81 and calls SwitchOldRadios()
+        SetStage(MyStageToSet)
+        return true
+    else
+        ;player has not left vault. reregister.
+        debug.trace(self + " --- Radio Vault 81. Player has not left Vault 111. Cannot start radio!")
+        RegisterForRemoteEvent(MQ102, "OnStageSet")
+        return false
+    endif
+EndFunction
+
+; turn on the radio
+Function TurnOnRadioVault81()
+    debug.trace(self + "TurnOnRadioVault81()")
+    oltRadioVault81.Start()
+EndFunction
+
+;Transmitter alias has OnPipboyDetectionEvent to set stage 255 which will call this and then shut down the quest.
+Function UnregisterForMQEvent()
+    debug.trace(self + " --- Radio Vault 81. initializing complete. Shutting down registration.")
+    UnregisterForRemoteEvent(MQ102, "OnStageSet")
+EndFunction
 
 ;/---------------------------------------------
        FUNCTIONS
 -----------------------------------------------/;
 
+; add thank and credits to help files
 Function AddToHelpFiles()
     ; add help messages
     HelpManualPC.AddForm(oltHelpVault81Radio)
@@ -140,6 +176,7 @@ Function AddToHelpFiles()
     debug.trace(self + " --- Radio Vault 81. Help Menu Updated. DO NOT UNINSTALL AND CONTINUE ON THE SAME SAVE. HELP MENU IS FORMLIST. HELP MENU WILL BREAK! ")
 EndFunction
 
+;add the new radios to the scrap lists in case players have a mod that turns Vault 81 into a settlement
 Function UpdateScraplist()
     debug.trace(self + " --- Radio Vault 81. Updating Scraplist")
     ; if players remove this mod in the middle of their game, this formlist will break
@@ -149,6 +186,7 @@ Function UpdateScraplist()
     debug.trace(self + " --- Radio Vault 81. Vault 81 done updating scraplist. DO NOT UNINSTALL AND CONTINUE ON THE SAME SAVE. SCRAP LIST IS FORMLIST. SCRAP LIST WILL BREAK! ")
 EndFunction
 
+;store the variables
 bool Function ProcessOldRadioVariables()
     if Game.IsPluginInstalled(sFO4)
         RadioDiamondCityReceiver = Game.GetFormFromFile(iRadioDiamondCityReceiver, sFO4) as ObjectReference
@@ -164,6 +202,7 @@ bool Function ProcessOldRadioVariables()
     return false
 EndFunction
 
+;store the other variables
 bool Function ProcessNewRadioVariables()
     if Game.IsPluginInstalled(sRV81)
         oltRadioOldPenskeRoom = Game.GetFormFromFile(ioltRadioOldPenskeRoom, sRV81) as ObjectReference
@@ -178,7 +217,8 @@ bool Function ProcessNewRadioVariables()
     return false
 EndFunction
 
-
+;move the radios around
+;I don't want to touch Vault 81's cell so we're doing this the hard way
 Function PlaceRadio(ObjectReference akOldRadio, ObjectReference akNewRadio)
     if akOldRadio
         debug.trace(self + " --- Radio Vault 81 old radio: " + akOldRadio)
@@ -211,29 +251,10 @@ EndFunction
 
 ;called by MyStageToSet
 Function SwitchOldRadios()
-    PlaceRadio(RadioDiamondCityReceiver, oltRadioOldPenskeRoom)
-    PlaceRadio(RadioDiamondCityReceiverNew_1, oltRadioNewVaultEntrance)
-    PlaceRadio(RadioDiamondCityReceiverNew_2, oltRadioNewSunshineDiner)
-    PlaceRadio(RadioDiamondCityReceiverNew_3, oltRadioNewBarbershop)
-    PlaceRadio(RadioDiamondCityReceiverNew_4, oltRadioNewReactor)
-    PlaceRadio(RadioDiamondCityReceiverOff, oltRadioOffTinasRoom)
-EndFunction
-
-Function RegisterForMQEvent()
-    debug.trace(self + " --- Radio Vault 81. Has player left Vault 111?")
-    ; check if player has left Vault 111
-    if (MQ102.GetStageDone(MyStageToWatch) == True)
-        debug.trace(self + " --- Radio Vault 81. Player has left Vault 111. Starting up radio!!")
-
-        ; when stage sets, it turns on Radio Vault 81 and calls SwitchOldRadios()
-        SetStage(MyStageToSet)
-    else
-        debug.trace(self + " --- Radio Vault 81. Player has not left Vault 111. Cannot start radio!")
-        RegisterForRemoteEvent(MQ102, "OnStageSet")
-    endif
-EndFunction
-
-Function UnregisterForMQEvent()
-    debug.trace(self + " --- Radio Vault 81. initializing complete. Shutting down registration.")
-    UnregisterForRemoteEvent(MQ102, "OnStageSet")
+        PlaceRadio(RadioDiamondCityReceiver, oltRadioOldPenskeRoom)
+        PlaceRadio(RadioDiamondCityReceiverNew_1, oltRadioNewVaultEntrance)
+        PlaceRadio(RadioDiamondCityReceiverNew_2, oltRadioNewSunshineDiner)
+        PlaceRadio(RadioDiamondCityReceiverNew_3, oltRadioNewBarbershop)
+        PlaceRadio(RadioDiamondCityReceiverNew_4, oltRadioNewReactor)
+        PlaceRadio(RadioDiamondCityReceiverOff, oltRadioOffTinasRoom)
 EndFunction
