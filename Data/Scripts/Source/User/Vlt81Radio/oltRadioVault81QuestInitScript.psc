@@ -19,8 +19,18 @@ EndGroup
 
 Group Radios
     FormList Property workshopScrapRecipe_Radio Auto Const
+    {scrap list for radios not in a workshop}
     Activator Property oltRadioVault81Receiver Auto Const
+    {new receiver}
     Activator Property oltRadioVault81ReceiverNew Auto Const
+    {new receiver}
+    Float Property radioFreq = 81.82 Auto Const
+    {Default 81.82}
+    Float Property radioVol = 1.0 Auto Const
+    {Default 1.0. Full Volume}
+    bool Property bRadioOff = Falso Auto Const
+    {Turns radio off. Default off}
+
 EndGroup
 
 bool bInitialized = false
@@ -66,7 +76,7 @@ String sFO4 = "Fallout4.esm" const
 bool bFO4EventsReady
 
 ;/---------------------------------------------
-       NEW RADIOS
+       NEW RADIOS -- IGNORE!! I DID NOT KNOW ABOUT MAKERADIORECEIVER()!!!
 -----------------------------------------------/;
 ;these will autofill when the plugin loads
 
@@ -118,7 +128,7 @@ Function StartUp()
     if (!bInitialized)
         ; these only need to be called here. We're already going to have the plugins loaded
         bFO4EventsReady = bFO4EventsReady || ProcessOldRadioVariables()
-        bRadioEventsReady = bRadioEventsReady || ProcessNewRadioVariables()
+        ;bRadioEventsReady = bRadioEventsReady || ProcessNewRadioVariables()
 
         ;add our help menu message
         AddToHelpFiles()
@@ -203,6 +213,10 @@ bool Function ProcessOldRadioVariables()
 EndFunction
 
 ;store the other variables
+;/
+
+I WISH I'D KNOWN ABOUT MAKERADIORECIEVER 8 HOURS AGO!!!!!!!!!!
+
 bool Function ProcessNewRadioVariables()
     if Game.IsPluginInstalled(sRV81)
         oltRadioOldPenskeRoom = Game.GetFormFromFile(ioltRadioOldPenskeRoom, sRV81) as ObjectReference
@@ -217,11 +231,19 @@ bool Function ProcessNewRadioVariables()
     return false
 EndFunction
 
+/;
+
 ;move the radios around
 ;I don't want to touch Vault 81's cell so we're doing this the hard way
-Function PlaceRadio(ObjectReference akOldRadio, ObjectReference akNewRadio)
+
+;NO I'M NOT!!!!!!!
+
+;Function PlaceRadio(ObjectReference akOldRadio, ObjectReference akNewRadio)
+Function PlaceRadio(ObjectReference akOldRadio, float fFreq, float fVol, bool bIsOff)
     if akOldRadio
         debug.trace(self + " --- Radio Vault 81 old radio: " + akOldRadio)
+
+        ;/
         ;store the old radio's position
         float AngX = akOldRadio.GetAngleX()
         float AngY = akOldRadio.GetAngleZ()
@@ -246,15 +268,35 @@ Function PlaceRadio(ObjectReference akOldRadio, ObjectReference akNewRadio)
         akNewRadio.Enable()
 
         debug.trace(self + " --- Radio Vault 81 radios are in place! ")
+
+        /;
+        if !bRadioOff
+            akOldRadio.MakeRadioReceiver(fFreq, fVol, none, True)
+            debug.trace(self + " --- Radio Vault 81 receiver akOldRadio: " + akOldRadio + " converted to frequency: " + fFreq + " and has volume: " + fVol + " and is not turned off")
+        else
+            akOldRadio.MakeRadioReceiver(fFreq, fVol, none, False)
+            debug.trace(self + " --- Radio Vault 81 receiver akOldRadio: " + akOldRadio + " converted to frequency: " + fFreq + " and has volume: " + fVol + " and is turned off")
+        endif
+        debug.trace(self " -- Radio Vault 81 radios converted from Diamond City to Vault 81.")
     endif
 EndFunction
 
 ;called by MyStageToSet
 Function SwitchOldRadios()
+
+    PlaceRadio(RadioDiamondCityReceiver,      radioFreq, radioVol, False)
+    PlaceRadio(RadioDiamondCityRaceiverNew_1, radioFreq, radioVol, False)
+    PlaceRadio(RadioDiamondCityReceiverNew_2, radioFreq, radioVol, False)
+    PlaceRadio(RadioDiamondCityReceiverNew_3, radioFreq, radioVol, false)
+    PlaceRadio(RadioDiamondCityReceiverNew_4, radioFreq, radioVol, false)
+    PlaceRadio(RadioDiamondCityReceiverOff,   radioFreq, radioVol, true)
+    ;/
         PlaceRadio(RadioDiamondCityReceiver, oltRadioOldPenskeRoom)
         PlaceRadio(RadioDiamondCityReceiverNew_1, oltRadioNewVaultEntrance)
         PlaceRadio(RadioDiamondCityReceiverNew_2, oltRadioNewSunshineDiner)
         PlaceRadio(RadioDiamondCityReceiverNew_3, oltRadioNewBarbershop)
         PlaceRadio(RadioDiamondCityReceiverNew_4, oltRadioNewReactor)
         PlaceRadio(RadioDiamondCityReceiverOff, oltRadioOffTinasRoom)
+    /;
 EndFunction
+
