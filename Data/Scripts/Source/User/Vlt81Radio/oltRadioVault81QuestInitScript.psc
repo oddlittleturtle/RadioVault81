@@ -30,7 +30,8 @@ Group Radios
     {Default 1.0. Full Volume}
     bool Property bRadioOff = False Auto Const
     {Turns radio off. Default off}
-
+    GlobalVariable Property GlobalToSet Auto Const
+    ReferenceAlias Property Alias_Transmitter Auto Const
 EndGroup
 
 bool bInitialized = false
@@ -167,9 +168,14 @@ Function TurnOnRadioVault81()
     oltRadioVault81.Start()
 EndFunction
 
-;Transmitter alias has OnPipboyDetectionEvent to set stage 255 which will call this and then shut down the quest.
+;Transmitter alias has OnPipboyDetectionEvent to set stage 255 which will call this
 Function UnregisterForMQEvent()
     debug.trace(self + " --- Radio Vault 81. initializing complete. Shutting down registration.")
+
+    ;set the global to unlock the crafting recipes
+    GlobalToSet.SetValue(1)
+
+    ;unregister
     UnregisterForRemoteEvent(MQ102, "OnStageSet")
 EndFunction
 
@@ -283,6 +289,14 @@ EndFunction
 
 ;called by MyStageToSet
 Function SwitchOldRadios()
+
+    ObjectReference RadioTransmitter = Alias_Transmitter.GetReference()
+
+    RadioTransmitter.MoveTo(Vault81AtriumMapMarker, afXOffset=utility.randomfloat(0.0, 27.00), afYOffset=utility.randomfloat(1.0, 150.00), afZOffset=2500)
+
+    RadioTransmitter.Disable()
+    RadioTransmitter.Enable()
+    Utility.Wait(5.0)
 
     PlaceRadio(RadioDiamondCityReceiver,      radioFreq, radioVol, False)
     PlaceRadio(RadioDiamondCityReceiverNew_1, radioFreq, radioVol, False)
